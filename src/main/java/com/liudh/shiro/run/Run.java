@@ -16,23 +16,23 @@ public class Run {
 
     public static void main(String[] args) {
 
-        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/spring.xml")) {
-            context.registerShutdownHook();
-            context.start();
-
-            logger.info("spring 容器启动完成...");
-
-            Object lock = new Object();
-            synchronized (lock) {
-                try {
-                    while (true)
-                        lock.wait();
-                } catch (InterruptedException e) {
-                    logger.error(e.getMessage(), e);
-                }
-            }
-        } catch (Exception e) {
-            logger.error("spring 容器启动错误", e);
-        }
+//        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/spring.xml")) {
+//            context.registerShutdownHook();
+//            context.start();
+//
+//            logger.info("spring 容器启动完成...");
+//
+//            Object lock = new Object();
+//            synchronized (lock) {
+//                try {
+//                    while (true)
+//                        lock.wait();
+//                } catch (InterruptedException e) {
+//                    logger.error(e.getMessage(), e);
+//                }
+//            }
+//        } catch (Exception e) {
+//            logger.error("spring 容器启动错误", e);
+//        }
     }
 }

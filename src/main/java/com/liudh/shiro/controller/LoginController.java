@@ -1,13 +1,8 @@
 package com.liudh.shiro.controller;
 
-import com.liudh.shiro.pojo.UPermission;
 import com.liudh.shiro.service.TestService;
-import com.liudh.shiro.util.MdUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.authz.UnauthorizedException;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

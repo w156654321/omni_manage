@@ -12,8 +12,8 @@
 </head>
 <body>
         <form action="/user/login.do" method="post">
-        账号：<input type="text" name="username" ><br>
-        密码：<input type="text" name="password" ><br>
+        账号：<input type="text" name="username" value="admin"><br>
+        密码：<input type="text" name="password" value="1234"><br>
          <input type="submit" value="登陆">
         </form>
 </body>
