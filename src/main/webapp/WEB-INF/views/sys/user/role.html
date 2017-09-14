@@ -1,0 +1,26 @@
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="always" name="referrer">
+    <title>用户角色</title>
+    <div th:include="/common/common :: html"></div>
+</head>
+
+<body>
+<div class="easyui-layout" data-options="fit:true,border:false,minWidth:560">
+    <div data-options="region:'center',border:false" style="height:100%">
+        <table id="role-dg" style="width:100%;height:100%;">
+        </table>
+    </div>
+    <input type="hidden" id="userId" th:value="${userId}">
+</div>
+<div id="dlg"></div>
+<script src="/js/sys/userRole.js"></script>
+</body>
+</html>

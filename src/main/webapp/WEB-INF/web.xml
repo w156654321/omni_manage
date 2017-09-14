@@ -56,7 +56,7 @@
       </servlet>
       <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/</url-pattern>
       </servlet-mapping>
 
       <!--springmvc与favicon.ico的配置-->

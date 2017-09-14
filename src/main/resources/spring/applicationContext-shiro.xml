@@ -80,9 +80,11 @@
 		<constructor-arg>
 			<value>
 				/ = anon
-				/user/toLogin.do = anon
+				/user/login.do = anon
 				/user/main.do = authc
 				/role/** = authc,roles[admin]
+				/static/**=anon
+				/** = authc
 			</value>
 		</constructor-arg>
 	</bean>

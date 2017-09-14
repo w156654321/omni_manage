@@ -11,7 +11,7 @@
     <title>首页</title>
 </head>
 <body>
-        <form action="/user/login.do" method="post">
+        <form action="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/user/login.do" method="post">
         账号：<input type="text" name="username" value="admin"><br>
         密码：<input type="text" name="password" value="1234"><br>
          <input type="submit" value="登陆">

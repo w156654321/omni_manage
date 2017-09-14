@@ -51,7 +51,7 @@ public class LoginController {
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.login(token);
 
-        return "redirect:/user/main.do";
+        return "main";
     }
 
     @RequestMapping("main")
