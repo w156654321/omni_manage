@@ -178,11 +178,11 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row" style="background-color: rgb(101, 47, 155)">
-        <div class="col-xs-6"><h3 style="color: #FFF">Bootstrap system</h3></div>
+    <div class="row" style="background-color: #5151A2">
+        <div class="col-xs-6"><h3 style="color: #FFF">商家管理后台</h3></div>
         <div class="col-xs-6">
             <p class="text-right" style="padding-top: 26px; padding-right: 20px">
-                <a href="#">Admin</a> <a href="" class="">Exit</a>
+                <a href="#" style="color: #FFF">当前用户：Admin</a> <a href="" class="" style="color: #FFF">退出</a>
             </p>
         </div>
     </div>
