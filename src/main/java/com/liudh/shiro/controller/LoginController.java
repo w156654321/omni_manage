@@ -32,7 +32,7 @@ public class LoginController {
     public String index(){
 //        UPermission permission = testService.insertTest();
         System.out.println("111");
-        return "login";
+        return "index";
     }
 
     @RequestMapping("toLogin")
@@ -56,7 +56,7 @@ public class LoginController {
 
     @RequestMapping("main")
     public String main(){
-        return "main";
+        return "index1";
     }
 
     @RequestMapping("403")
@@ -66,4 +66,16 @@ public class LoginController {
         return "403";
     }
 
+
+    @RequestMapping("list")
+    public String list(){
+        System.out.println("111");
+        return "list";
+    }
+
+    @RequestMapping("edit")
+    public String edit(){
+        System.out.println("111");
+        return "edit";
+    }
 }
