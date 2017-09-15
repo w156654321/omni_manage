@@ -25,7 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("user")
 public class LoginController {
 
-
     @RequestMapping(value = "login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model) throws Exception {
 
@@ -36,7 +35,6 @@ public class LoginController {
         UsernamePasswordToken token = new UsernamePasswordToken(username, pwd, captcha);
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.login(token);
-
         return "index";
     }
 

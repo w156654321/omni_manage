@@ -39,10 +39,7 @@
     })
 </script>
 
-<a href="#edit.do" data-tab="main">角色管理</a>
-
 <button id="me">click me</button>
-
 <table class="table table-bordered table-hover">
     <thead>
     <tr>
