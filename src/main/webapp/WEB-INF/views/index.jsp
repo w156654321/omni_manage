@@ -131,12 +131,12 @@
                         <div class="sidebar-menu">
                             <a href="#userMeun" class="nav-header menu-first collapsed" data-toggle="collapse"><i class="icon-user-md icon-large"></i> 机构用户</a>
                             <ul id="userMeun" class="nav nav-list collapse in menu-second">
-                                <li><a href="#list.do" data-tab="main"><i class="icon-list"></i> 用户列表</a></li>
+                                <li><a href="#/user/list.do" data-tab="main"><i class="icon-list"></i> 用户列表</a></li>
                                 <li><a href="#" data-tab="main"><i class="icon-list"></i> 管理员列表</a></li>
                             </ul>
                             <a href="#articleMenu" class="nav-header menu-first collapsed" data-toggle="collapse"><i class="icon-book icon-large"></i> 系统设置</a>
                             <ul id="articleMenu" class="nav nav-list collapse in menu-second">
-                                <li><a href="#edit.do" data-tab="main"><i class="icon-list-alt"></i>角色管理</a></li>
+                                <li><a href="#/role/list.do" data-tab="main"><i class="icon-list-alt"></i>角色管理</a></li>
                                 <li><a href="#"><i class="icon-pencil"></i>菜单管理</a></li>
                                 <li><a href="#"><i class="icon-pencil"></i>字典管理</a></li>
                             </ul>

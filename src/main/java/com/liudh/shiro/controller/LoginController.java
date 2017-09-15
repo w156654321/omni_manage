@@ -43,15 +43,4 @@ public class LoginController {
         return "403";
     }
 
-    @RequestMapping("list")
-    public String list(){
-        System.out.println("111");
-        return "list";
-    }
-
-    @RequestMapping("edit")
-    public String edit(){
-        System.out.println("111");
-        return "edit";
-    }
 }
