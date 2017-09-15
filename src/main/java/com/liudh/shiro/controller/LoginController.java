@@ -25,21 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("user")
 public class LoginController {
 
-    @Autowired
-    private TestService testService;
 
-    @RequestMapping("/")
-    public String index(){
-//        UPermission permission = testService.insertTest();
-        System.out.println("111");
-        return "index";
-    }
-
-    @RequestMapping("toLogin")
-    public String toLogin(){
-//        UPermission permission = testService.insertTest();
-        return "login";
-    }
     @RequestMapping(value = "login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model) throws Exception {
 
@@ -51,21 +37,13 @@ public class LoginController {
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.login(token);
 
-        return "main";
-    }
-
-    @RequestMapping("main")
-    public String main(){
-        return "index1";
+        return "index";
     }
 
     @RequestMapping("403")
     public String error403(){
-//        UPermission permission = testService.insertTest();
-        System.out.println("111");
         return "403";
     }
-
 
     @RequestMapping("list")
     public String list(){
