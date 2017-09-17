@@ -13,14 +13,14 @@
     <title>Title</title>
 </head>
 <body>
-${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/
-   当前用户：${currentUser.email}${currentUser.nickname}
-   <shiro:hasPermission name="/role/aaa.shtml">
-       <p>你有权限看到此处!</p>
-   </shiro:hasPermission>
-   <shiro:hasRole name="admin">
-       <p>系统管理员权限看到此处!</p>
-   </shiro:hasRole>
+<%--${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/--%>
+   <%--当前用户：${currentUser.email}${currentUser.nickname}--%>
+   <%--<shiro:hasPermission name="/role/aaa.shtml">--%>
+       <%--<p>你有权限看到此处!</p>--%>
+   <%--</shiro:hasPermission>--%>
+   <%--<shiro:hasRole name="admin">--%>
+       <%--<p>系统管理员权限看到此处!</p>--%>
+   <%--</shiro:hasRole>--%>
 
 </body>
 </html>

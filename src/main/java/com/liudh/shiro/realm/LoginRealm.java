@@ -1,16 +1,9 @@
 package com.liudh.shiro.realm;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import com.liudh.shiro.pojo.UPermission;
-import com.liudh.shiro.pojo.URole;
-import com.liudh.shiro.pojo.UUser;
-import com.liudh.shiro.service.PermissionService;
-import com.liudh.shiro.service.RoleService;
-import com.liudh.shiro.service.UserService;
+import com.dubbo.pojo.UUser;
+import com.dubbo.service.PermissionService;
+import com.dubbo.service.RoleService;
+import com.dubbo.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -21,6 +14,8 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Set;
 
 
 /**

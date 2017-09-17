@@ -1,10 +1,8 @@
 package com.liudh.shiro.controller;
 
-import com.liudh.shiro.service.TestService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +33,10 @@ public class LoginController {
         UsernamePasswordToken token = new UsernamePasswordToken(username, pwd, captcha);
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.login(token);
+        return "index";
+    }
+    @RequestMapping(value = "main",method = RequestMethod.POST)
+    public String main(){
         return "index";
     }
 

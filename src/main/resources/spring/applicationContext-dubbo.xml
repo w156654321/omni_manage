@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://code.alibabatech.com/schema/dubbo	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="omin-consumer" logger="slf4j"/>
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" check="false" subscribe="true"
+                    register="false" file="${dubbo.cache.dir}/dubbo-omin-consumer.cache" />
+    <dubbo:consumer timeout="600000" loadbalance="leastactive" check="false" retries="0"/>
+
+    <dubbo:reference interface="com.dubbo.service.UserService" id="userServiceImpl"/>
+    <dubbo:reference interface="com.dubbo.service.RoleService" id="roleServiceImpl"/>
+    <dubbo:reference interface="com.dubbo.service.PermissionService" id="permissionServiceImpl"/>
+</beans>
