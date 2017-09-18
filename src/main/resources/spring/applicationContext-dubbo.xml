@@ -2,13 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://code.alibabatech.com/schema/dubbo	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="omin-consumer" logger="slf4j"/>
-    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" check="false" subscribe="true"
-                    register="false" file="${dubbo.cache.dir}/dubbo-omin-consumer.cache" />
-    <dubbo:consumer timeout="600000" loadbalance="leastactive" check="false" retries="0"/>
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="wap-dubbo-client"/>
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="${zk.server}" group="${zk.group}" id="myGroup"/>
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:protocol name="dubbo" port="${zk.port}"/>
+    <dubbo:consumer check="false" timeout="1200000" />
+    <dubbo:annotation package="com.dubbo.service.*" />
 
     <dubbo:reference interface="com.dubbo.service.UserService" id="userServiceImpl"/>
     <dubbo:reference interface="com.dubbo.service.RoleService" id="roleServiceImpl"/>
