@@ -16,7 +16,9 @@
     <dubbo:consumer check="false" timeout="1200000" />
     <dubbo:annotation package="com.dubbo.service.*" />
 
+    <dubbo:reference interface="com.dubbo.mq.MqProducer" id="mqProducerImpl"/>
     <dubbo:reference interface="com.dubbo.service.UserService" id="userServiceImpl"/>
     <dubbo:reference interface="com.dubbo.service.RoleService" id="roleServiceImpl"/>
     <dubbo:reference interface="com.dubbo.service.PermissionService" id="permissionServiceImpl"/>
+ 
 </beans>

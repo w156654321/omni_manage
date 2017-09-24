@@ -1,5 +1,6 @@
 package com.liudh.shiro.realm;
 
+import com.dubbo.mq.MqProducer;
 import com.dubbo.pojo.UUser;
 import com.dubbo.service.PermissionService;
 import com.dubbo.service.RoleService;
@@ -14,7 +15,10 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -29,6 +33,10 @@ public class LoginRealm extends AuthorizingRealm {
     private RoleService roleService;
     @Autowired
     private PermissionService permissionService;
+    @Autowired
+    private MqProducer mqProducer;
+    @Value("${mq.queue}")
+    private String queueId;
 
     /**
      * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用
@@ -52,6 +60,12 @@ public class LoginRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("data", "hello rabbitmq ");
+        Map<String, Object> maps = new HashMap<String, Object>();
+        maps.put("data", "hello rabbitmq liudh");
+        mqProducer.sendQueue(queueId + "_exchange", queueId + "_patt", map);
+        mqProducer.sendQueue(queueId + "_exchange", "liudh_patt", maps);
         //获取基于用户名和密码的令牌
         //实际上这个authcToken是从LoginController里面currentUser.login(token)传过来的
         UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
