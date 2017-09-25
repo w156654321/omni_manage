@@ -20,4 +20,12 @@ public class IndexController {
         return "login";
     }
 
+    @RequestMapping("/500")
+    public String error500(){
+        return "500";
+    }
+    @RequestMapping("/404")
+    public String error404(){
+        return "404";
+    }
 }
