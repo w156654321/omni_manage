@@ -2,6 +2,8 @@ package com.liudh.shiro.realm;
 
 import com.dubbo.mq.MqProducer;
 import com.dubbo.pojo.UUser;
+import com.dubbo.redis.JedisClient;
+import com.dubbo.redis.JedisClusterClient;
 import com.dubbo.service.PermissionService;
 import com.dubbo.service.RoleService;
 import com.dubbo.service.UserService;
@@ -35,6 +37,8 @@ public class LoginRealm extends AuthorizingRealm {
     private PermissionService permissionService;
     @Autowired
     private MqProducer mqProducer;
+//    @Autowired
+//    private JedisClient jedisClusterClient;
     @Value("${mq.queue}")
     private String queueId;
 
@@ -60,12 +64,12 @@ public class LoginRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("data", "hello rabbitmq ");
-        Map<String, Object> maps = new HashMap<String, Object>();
-        maps.put("data", "hello rabbitmq liudh");
-        mqProducer.sendQueue(queueId + "_exchange", queueId + "_patt", map);
-        mqProducer.sendQueue(queueId + "_exchange", "liudh_patt", maps);
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("data", "hello rabbitmq ");
+//        Map<String, Object> maps = new HashMap<String, Object>();
+//        maps.put("data", "hello rabbitmq liudh");
+//        mqProducer.sendQueue(queueId + "_exchange", queueId + "_patt", map);
+//        mqProducer.sendQueue(queueId + "_exchange", "liudh_patt", maps);
         //获取基于用户名和密码的令牌
         //实际上这个authcToken是从LoginController里面currentUser.login(token)传过来的
         UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
