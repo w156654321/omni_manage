@@ -2,12 +2,13 @@
  * Copyright © since 2008. All Rights Reserved
  * 汇元银通（北京）在线支付技术有限公司   www.heepay.com
  */
-package com.liudh.shiro.realm;
+package com.liudh.shiro.session;
 
-import com.dubbo.redis.JedisClusterClient;
 import com.dubbo.utils.SerializeUtil;
+import com.liudh.shiro.redis.JedisClusterClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -39,6 +40,7 @@ public class RedisManager {
     /**
      * redis
      */
+    @Autowired
     private JedisClusterClient jedisClient;
 
     /**

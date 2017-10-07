@@ -2,7 +2,7 @@
  * Copyright © since 2008. All Rights Reserved
  * 汇元银通（北京）在线支付技术有限公司   www.heepay.com
  */
-package com.liudh.shiro.realm;
+package com.liudh.shiro.session;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

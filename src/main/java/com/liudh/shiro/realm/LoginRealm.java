@@ -2,11 +2,10 @@ package com.liudh.shiro.realm;
 
 import com.dubbo.mq.MqProducer;
 import com.dubbo.pojo.UUser;
-import com.dubbo.redis.JedisClient;
-import com.dubbo.redis.JedisClusterClient;
 import com.dubbo.service.PermissionService;
 import com.dubbo.service.RoleService;
 import com.dubbo.service.UserService;
+import com.liudh.shiro.redis.JedisClusterClient;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -19,8 +18,6 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 
@@ -37,8 +34,8 @@ public class LoginRealm extends AuthorizingRealm {
     private PermissionService permissionService;
     @Autowired
     private MqProducer mqProducer;
-//    @Autowired
-//    private JedisClient jedisClusterClient;
+    @Autowired
+    private JedisClusterClient jedisClusterClient;
     @Value("${mq.queue}")
     private String queueId;
 
