@@ -7,6 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <head>
     <title>商家后台管理系统</title>
     <meta name="keywords" content="" />
@@ -14,10 +20,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/static/css/login/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/login/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/login/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/login/templatemo_style.css" rel="stylesheet" type="text/css">
+    <link href="<%=basePath %>static/css/login/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=basePath %>static/css/login/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=basePath %>static/css/login/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=basePath %>static/css/login/templatemo_style.css" rel="stylesheet" type="text/css">
 </head>
 <body class="templatemo-bg-gray">
 <div class="container" style="margin-top: 120px">

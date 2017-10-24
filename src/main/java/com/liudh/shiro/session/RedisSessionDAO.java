@@ -5,12 +5,14 @@
 package com.liudh.shiro.session;
 
 import com.dubbo.utils.SerializeUtil;
+import com.dubbo.utils.Servlets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
@@ -111,6 +113,15 @@ public class RedisSessionDAO extends AbstractSessionDAO {
     /**这两个是AbstractSessionDAO内的*/
     @Override
     protected Serializable doCreate(Session session) {
+        HttpServletRequest request = Servlets.getRequest();
+        if (request != null){
+            String uri = request.getServletPath();
+            System.out.println(uri);
+            // 如果是静态文件，则不创建SESSION
+//            if (Servlets.isStaticFile(uri)){
+//                return null;
+//            }
+        }
         Serializable sessionId = this.generateSessionId(session);
         this.assignSessionId(session, sessionId);
         this.saveSession(session);
