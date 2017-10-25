@@ -5,8 +5,8 @@ import java.security.MessageDigest;
 /**
  * MessageDigest算法
  *
- * @author ZhangQiang
- * @version 2009-2-24 17:32:39
+ * @author
+ * @version
  */
 public class MdUtils
 {

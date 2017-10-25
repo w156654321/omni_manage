@@ -18,17 +18,10 @@ import java.util.*;
 /**
  * 名称：shrio的redis缓存类
  * <p>
- * 创建者  B.HJ
- * 创建时间 2016-10-13-17:41
- * 创建描述：shrio的redis缓存类
+ * 创建者
+ * 创建时间
+ * 创建描述
  *
- * 审核者：
- * 审核时间：
- * 审核描述：
- *
- * 修改者：
- * 修改时间：
- * 修改内容：
  */
 public class RedisCache<K, V> implements Cache<K, V> {
 

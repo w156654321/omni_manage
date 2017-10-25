@@ -7,8 +7,8 @@ import java.io.InputStream;
 /**
  * 类型转换功能类
  *
- * @author ZhangQiang
- * @version 2008-3-5 19:06:52
+ * @author
+ * @version
  */
 @SuppressWarnings("unchecked")
 public class ConvertUtils

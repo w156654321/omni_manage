@@ -20,13 +20,6 @@ import java.util.concurrent.ConcurrentMap;
  * 创建时间
  * 创建描述
  *
- * 审核者：
- * 审核时间：
- * 审核描述：
- *
- * 修改者：
- * 修改时间：
- * 修改内容：
  */
 public class RedisCacheManager implements CacheManager {
 

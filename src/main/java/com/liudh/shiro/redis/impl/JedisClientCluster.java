@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPool;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -19,7 +20,14 @@ public class JedisClientCluster implements JedisClusterClient {
 	
 	@Override
 	public String get(String key) {
-		return jedisCluster.get(key);
+		try {
+			String result = jedisCluster.get(key);
+			jedisCluster.close();
+			return result;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 
 	@Override
