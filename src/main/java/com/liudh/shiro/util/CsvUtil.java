@@ -1,11 +1,9 @@
-package com.heepay.payment.utils;
+package com.liudh.shiro.util;
 
 import com.csvreader.CsvWriter;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +29,9 @@ import java.util.List;
 public class CsvUtil {
 
 
-    public void getInfo(String[] headers,HttpServletResponse response){
+    public static void getInfo(HttpServletResponse response){
         try {
-//            headers = {"姓名","年龄","编号","性别"};
+            String[] headers = {"姓名","年龄","编号","性别"};
             // 创建CSV写对象
             List<String[]> ls=new ArrayList<String[]>();
             for (int i = 0; i <100; i++) {
@@ -66,22 +64,36 @@ public class CsvUtil {
             /**
              * 写入csv结束，写出流
              */
-            java.io.OutputStream out = response.getOutputStream();
-            byte[] b = new byte[10240];
-            java.io.File fileLoad = new java.io.File(tempFile.getCanonicalPath());
-            response.reset();
-            response.setContentType("application/csv");
-            response.setHeader("content-disposition", "attachment; filename=vehicleModel.csv");
-            long fileLength = fileLoad.length();
-            String length1 = String.valueOf(fileLength);
-            response.setHeader("Content_Length", length1);
-            java.io.FileInputStream in = new java.io.FileInputStream(fileLoad);
+            byte[] buffer = null;
+            File fileLoad = new File(tempFile.getCanonicalPath());
+            FileInputStream fis = new FileInputStream(fileLoad);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream(1000);
+            byte[] b = new byte[1000];
             int n;
-            while ((n = in.read(b)) != -1) {
-                out.write(b, 0, n); //每次写入out1024字节
+            while ((n = fis.read(b)) != -1) {
+                bos.write(b, 0, n);
             }
-            in.close();
-            out.close();
+            fis.close();
+            bos.close();
+            buffer = bos.toByteArray();
+            System.out.println(buffer);
+
+//            OutputStream out = response.getOutputStream();
+//            byte[] b = new byte[1024];
+//            File fileLoad = new File(tempFile.getCanonicalPath());
+//            response.reset();
+//            response.setContentType("application/csv");
+//            response.setHeader("content-disposition", "attachment; filename=vehicleModel.csv");
+//            long fileLength = fileLoad.length();
+//            String length1 = String.valueOf(fileLength);
+//            response.setHeader("Content_Length", length1);
+//            java.io.FileInputStream in = new java.io.FileInputStream(fileLoad);
+//            int n;
+//            while ((n = in.read(b)) != -1) {
+//                out.write(b, 0, n); //每次写入out1024字节
+//            }
+//            in.close();
+//            out.close();
 
         } catch (IOException e) {
             e.printStackTrace();
